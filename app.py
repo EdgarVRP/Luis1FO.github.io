@@ -14,3 +14,9 @@ app.config.suppress_callback_exceptions = True
 
 # set applicaiton title
 app.title = 'DevOps'
+
+# Call app server
+if __name__ == '__main__':
+    # set debug to false when deploying app
+    app.run_server(debug=True)
+
