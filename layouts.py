@@ -36,7 +36,7 @@ rendererName="Grouped Column Chart",
 aggregatorName="Average",
 #Datos que se muestran en las barras aqui podria ser metricas
 vals=['PuntosHistoria'],
-#atributos para omitir de los menús desplegables
+#atributos para omitir de los menus desplegables
 hiddenFromAggregators=["nombre_proyecto","Estado","PuntosHistoria","fechaInicio","fechaFin","entregable","responsable"],
 ), 
 html.Div(      
@@ -127,7 +127,7 @@ rendererName="Stacked Column Chart",
 aggregatorName="Sum",
 #Datos que se muestran en las barras aqui podria ser metricas
 vals=['Frecuencia'],
-#atributos para omitir de los menús desplegables
+#atributos para omitir de los menus desplegables
 #hiddenFromAggregators=["nombre_proyecto","Estado","PuntosHistoria","fechaInicio","fechaFin","entregable","responsable"],
 ), 
 html.Div(      
@@ -197,7 +197,7 @@ vals=["avance"],
 hiddenFromDragDrop=[],
 #atributos para omitir de la interfaz de usuario
 hiddenAttributes=["responsable"],
-#atributos para omitir de los menús desplegables
+#atributos para omitir de los menus desplegables
 hiddenFromAggregators=[],
 ),
 html.Div(
