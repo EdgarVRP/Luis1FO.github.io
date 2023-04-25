@@ -1,3 +1,27 @@
+from dash import html
+# import dash and bootstrap components
+import dash
+import dash_bootstrap_components as dbc
+#set app variable with dash, set external style to bootstrap theme SUPERHERO or SANDSTONE
+app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP]
+#app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO],
+meta_tags=[{'name': 'viewport', 'content': 'width=device-width, initial-scale=1'},],)
+# set app server to variable for deployment
+srv = app.server
+
+# set app callback exceptions to true
+app.config.suppress_callback_exceptions = True
+
+# set applicaiton title
+app.title = 'DevOps'
+
+# Call app server
+if __name__ == '__main__':
+    # set debug to false when deploying app
+    app.run_server(debug=False)
+
+
+
 # -*- coding: utf-8 -*-
 # import dash-core, dash-html, dash io, bootstrap
 from html.entities import html5
@@ -9,7 +33,7 @@ import dash_bootstrap_components as dbc
 # Navbar, layouts, custom callbacks
 from layouts import planLayout,codLayout,consLayout,pruLayout,lanLayout,dspLayout,opLayout,monLayout
 # Import app
-from app import app
+#from app import app
 # the style arguments for the sidebar. We use position:fixed and a fixed width
 SIDEBAR_STYLE = {
     "position": "fixed",
