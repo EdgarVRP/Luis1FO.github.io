@@ -15,13 +15,20 @@ from layouts import (
     monLayout,
 )
 
-app = dash.Dash(
-    external_stylesheets=[dbc.themes.BOOTSTRAP],
-    meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
-)
+#Se crea la aplicacion
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
+server = app.server
 app.title = "DevOps"
-srv = app.server
 app.config.suppress_callback_exceptions = True
+
+
+# app = dash.Dash(
+#     external_stylesheets=[dbc.themes.BOOTSTRAP],
+#     meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
+# )
+# app.title = "DevOps"
+# srv = app.server
+# app.config.suppress_callback_exceptions = True
 
 
 SIDEBAR_STYLE = {
@@ -133,7 +140,11 @@ def render_page_content(pathname):
         )
 
 
-# Call app server
+# # Call app server
+# if __name__ == "__main__":
+#     # set debug to false when deploying app
+#     app.run_server(debug=True)
+
+# se llama al servidor de la aplicacion
 if __name__ == "__main__":
-    # set debug to false when deploying app
     app.run_server(debug=True)
