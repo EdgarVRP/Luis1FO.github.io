@@ -3,7 +3,15 @@ from dash import dcc,html
 import dash
 import dash_bootstrap_components as dbc
 from dash.dependencies import Input, Output
+from flask import Flask
 from layouts import planLayout, codLayout, consLayout, pruLayout, lanLayout, dspLayout, opLayout, monLayout
+
+def create_app():
+    app = Flask(__name__)
+    ...
+    return app
+
+app = create_app()
 
 app = dash.Dash(external_stylesheets=[dbc.themes.BOOTSTRAP],
                 meta_tags=[{'name': 'viewport', 'content': 'width=device-width, initial-scale=1'}])
