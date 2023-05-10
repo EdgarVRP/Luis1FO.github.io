@@ -63,7 +63,9 @@ app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def render_page_content(pathname):
     if pathname == '/':
-         return html.Div(html.Img(src=app.get_asset_url('logo.png'))),html.Div([dcc.Markdown('''
+        return html.Div([
+            html.Img(src=app.get_asset_url('logo.png')),
+            html.Div([dcc.Markdown('''
             ### Introduccion 
             El objetivo de esta investigacion es proporcionar una herramienta de control que permitira a las empresas desarrolladoras de software,
             visualizar en forma grafica el estado de avance en el que se encuentran sus proyectos DevOps, permitiendo dar seguimiento, mostrar su continuidad
@@ -71,7 +73,9 @@ def render_page_content(pathname):
            
             Para lograr el objetivo planteado, se desarrollo una herramienta de software con base en tecnologias de codigo abierto,
             utilizando los 8 procesos mas comunes del enfoque DevOps y apoyandose del estandar IEEE 2675 for DevOps
-        ''')],className='home'),html.Img(src=app.get_asset_url('devops.png'))
+        ''')],className='home'),
+            html.Img(src=app.get_asset_url('devops.png'))
+        ])
     if pathname =='/plan':
         #return html.Div([dbc.Row(dbc.Col(html.Div("Proceso de Planificacion. En esta fase se definen los requisitos y valores empresariales. Indicador:Puntos de historia"))),]),html.Div(planLayout)
         return  '/',html.Div(planLayout)
@@ -96,4 +100,4 @@ def render_page_content(pathname):
 if __name__ == '__main__':
     # set debug to false when deploying app
     PORT = int(os.environ.get('PORT', 5001))
-    app.run(host='localhost', port=PORT, debug=True)
+    app.run_server(debug=True)
