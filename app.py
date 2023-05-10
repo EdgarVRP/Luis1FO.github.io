@@ -82,13 +82,8 @@ content = html.Div(id="page-content", style=CONTENT_STYLE)
 # Sidebar layout
 app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
 
+@app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 
-#@app.callback(Output("page-content", "children"), [Input("url", "pathname")])
-
-@app.callback(
-    [Output("page-content", "children"), Output("page-content", "children")],
-    [Input("url", "pathname")],
-)
 def render_page_content(pathname):
     if pathname == "/":
         return html.Div(
