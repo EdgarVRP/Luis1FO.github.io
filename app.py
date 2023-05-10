@@ -1,3 +1,4 @@
+import os
 from dash import dcc,html
 import dash
 import dash_bootstrap_components as dbc
@@ -94,4 +95,5 @@ def render_page_content(pathname):
 # Call app server
 if __name__ == '__main__':
     # set debug to false when deploying app
-    app.run_server(debug=True)
+    PORT = int(os.environ.get('PORT', 5001))
+    app.run(host='localhost', port=PORT, debug=True)
