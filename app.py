@@ -31,6 +31,7 @@ app.config.suppress_callback_exceptions = True
 # app.config.suppress_callback_exceptions = True
 
 
+
 SIDEBAR_STYLE = {
     "position": "fixed",
     "top": 0,
@@ -82,7 +83,12 @@ content = html.Div(id="page-content", style=CONTENT_STYLE)
 app.layout = html.Div([dcc.Location(id="url"), sidebar, content])
 
 
-@app.callback(Output("page-content", "children"), [Input("url", "pathname")])
+#@app.callback(Output("page-content", "children"), [Input("url", "pathname")])
+
+@app.callback(
+    [Output("page-content", "children"), Output("page-content", "children")],
+    [Input("url", "pathname")],
+)
 def render_page_content(pathname):
     if pathname == "/":
         return html.Div(
